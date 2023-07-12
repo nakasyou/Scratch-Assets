@@ -27,5 +27,11 @@ export const handler = async (req: Request, ctx: HandlerContext): Response => {
     })
   }
   assetsSearch(projectJson)
-  return new Response(JSON.stringify(assets))
+  const result = assets.map(asset => {
+    return {
+      name: asset.name,
+      file: aseet.md5ext,
+    }
+  })
+  return new Response(JSON.stringify(result))
 }
